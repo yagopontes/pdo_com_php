@@ -1,19 +1,20 @@
 <?php
 
-include_once('conexao.php');
+$serverName         = 'localhost';
+$userName           = 'root';
+$passWd             = '';
+$dbname             = 'meu_primeiro_banco';
 
-$executa = $conn->prepare(query: 'SELECT * FROM usuario_yago');
+try {
 
-$executa->execute();
+    $conn = new PDO("mysql:host=$serverName;dbname=$dbname", $userName, $passWd);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$resultados = $executa->fetchAll(modo: PDO::FETCH_OBJ);
+} catch (PDOException $erro) {
 
-foreach($resultados as $resultado) {
-
-    echo $resultado->nome . '<br />';
+    echo 'Conexão falhou: ' . $erro->getMessage();
 
 }
-
 
 
 ?>

@@ -56,46 +56,11 @@ $resultados = $executa->fetchAll(PDO::FETCH_OBJ);
 
         <main id="principal">
 
-            <h4 class="title-prinpipal text-center mt-4">Lista de Usuários</h4>
+            <h4 class="title-prinpipal text-center mt-4">Editar Usuário</h4>
 
             <div class="jumbotron">
 
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nome</th>
-                            <th>E-Mail</th>
-                            <th>Senha</th>
-                            <th>Opções</th>
-                        </tr>
-                    </thead>
-
-                   <tbody>
-                        <?php
-
-                            $cont = 1;
-                        foreach($resultados as $resultado) {
-
-                            echo '<tr>';
-                                echo "<td>$cont</td>";
-                                echo "<td>$resultado->nome</td>";
-                                echo "<td>$resultado->email</td>";
-                                echo "<td>$resultado->senha</td>";
-                                echo    '<td class="d-flex flex-row justify-content-around">
-                                            <a href="http://192.168.1.35/TRILHAS4/yago/pdo_com_php/usuario_edita.php?id=' . $resultado->cod_usuario . '" class="text-warning"><i class="far fa-edit"></i></a>
-
-                                            <a href="http://192.168.1.35/TRILHAS4/yago/pdo_com_php/alterastatus.php?id=' . $resultado->cod_usuario . '" class="text-danger"><i class="fas fa-trash-alt"></i></a>
-                                        </td>';
-                            echo '</tr>';
-
- 
-                            $cont++;
-                        }
-
-                        ?>
-                    </tbody>
-                </table>
+                
 
             </div>
 
